@@ -2,12 +2,31 @@
 body {
   margin: 0;
   padding: 0;
+  height: auto;
   background-color: #0d192b;
   color: white;
   font: 18px Outfit;
 }
 
-body .container {
+body .parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+body .parent .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,12 +42,12 @@ body .container {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  margin: auto;
+  margin: 50% 0;
 }
 
-body .container .card {
+body .parent .container .card {
   margin: auto;
-  max-width: 70%;
+  max-width: 75%;
   background-color: #14253d;
   border-radius: 5%;
   display: -webkit-box;
@@ -44,37 +63,70 @@ body .container .card {
   padding: 1.5rem 1.5rem;
 }
 
-body .container .card .nft-image {
+body .parent .container .card .nft-image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
 }
 
-body .container .card .nft-image img {
-  width: 97%;
+body .parent .container .card .nft-image .hero-image {
+  width: 100%;
   border-radius: 3%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
 
-body .container .card .nft-name-header {
+body .parent .container .card .nft-image .hero-image:hover {
+  opacity: 0.5;
+}
+
+body .parent .container .card .nft-image .hero-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+}
+
+body .parent .container .card .nft-image .hero-image-overlay:hover {
+  background-color: #00fff7;
+  opacity: .5;
+}
+
+body .parent .container .card .nft-name-header {
   font-size: 1.3rem;
   font-weight: 600;
   margin: 1.5rem 0 1rem 0;
 }
 
-body .container .card .nft-description {
+body .parent .container .card .nft-name-header:hover {
+  color: #00fff7;
+}
+
+body .parent .container .card .nft-description {
   font-size: 1rem;
   color: #8bacda;
   font-weight: 300;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0 0;
 }
 
-body .container .card .nft-purchase {
+body .parent .container .card .nft-purchase {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,24 +143,10 @@ body .container .card .nft-purchase {
   font-weight: 300;
   font-size: 1rem;
   color: #8bacda;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0 0;
 }
 
-body .container .card .nft-purchase .nft-price {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  gap: .3rem;
-  color: #00fff7;
-  font-weight: 600;
-}
-
-body .container .card .nft-purchase .nft-time-left {
+body .parent .container .card .nft-purchase .nft-price {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -118,12 +156,28 @@ body .container .card .nft-purchase .nft-time-left {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  gap: .3rem;
+  color: #00fff7;
+}
+
+body .parent .container .card .nft-purchase .nft-price p {
+  font-weight: 600;
+}
+
+body .parent .container .card .nft-purchase .nft-time-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: .3rem;
 }
 
-body .container .card .divider {
+body .parent .container .card .divider {
   width: 100%;
   height: 0px;
   padding: 0;
@@ -131,7 +185,7 @@ body .container .card .divider {
   margin-bottom: 1rem;
 }
 
-body .container .card .nft-creator {
+body .parent .container .card .nft-creator {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -150,11 +204,11 @@ body .container .card .nft-creator {
   font-weight: 300;
 }
 
-body .container .card .nft-creator span {
-  max-width: 15%;
+body .parent .container .card .nft-creator span {
+  max-width: 11%;
 }
 
-body .container .card .nft-creator span img {
+body .parent .container .card .nft-creator span img {
   width: 100%;
   display: inline-block;
   height: auto;
@@ -163,23 +217,33 @@ body .container .card .nft-creator span img {
   border: 1px solid white;
 }
 
-body .container .card .nft-creator .creator-start {
+body .parent .container .card .nft-creator .creator-start {
   margin-left: 1rem;
 }
 
-body .container .card .nft-creator .creator {
+body .parent .container .card .nft-creator .creator {
   margin-left: .3rem;
   max-width: 100%;
   color: white;
 }
 
-body .container .attribution {
+body .parent .container .card .nft-creator .creator:hover {
+  color: #00fff7;
+}
+
+body .parent .container .attribution {
   font-size: 11px;
   text-align: center;
   margin: 2rem 0 0 0;
 }
 
-body .container .attribution a {
+body .parent .container .attribution a {
   color: #3e52a3;
+}
+
+@media only screen and (min-width: 768px) {
+  body .parent .container .card {
+    max-width: 50%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

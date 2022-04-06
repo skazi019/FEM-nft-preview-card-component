@@ -11,133 +11,192 @@ $white: hsl(0, 0%, 100%);
 body {
     margin: 0;
     padding: 0;
+    height: auto;
     background-color: $body-bg;
     color: $white;
     font: $primary-font;
 
-    .container {
+    .parent {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         align-content: center;
-        margin: auto;
+        align-self: center;
+        height: 100vh;
+        width: 100vw;
 
-        .card {
-            margin: auto;
-            max-width: 70%;
-            background-color: $card-bg;
-            border-radius: 5%;
+        .container {
             display: flex;
-            justify-content: center;
             flex-direction: column;
-            padding: 1.5rem 1.5rem;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            margin: 50% 0;
 
-            .nft-image {
+            .card {
+                margin: auto;
+                max-width: 75%;
+                background-color: $card-bg;
+                border-radius: 5%;
                 display: flex;
                 justify-content: center;
+                flex-direction: column;
+                padding: 1.5rem 1.5rem;
 
-                img {
-                    width: 97%;
-                    border-radius: 3%;
-                    height: fit-content;
-                }
-            }
-
-            .nft-name-header {
-                font-size: 1.3rem;
-                font-weight: 600;
-                margin: 1.5rem 0 1rem 0;
-            }
-
-            .nft-description {
-                font-size: 1rem;
-                color: $primary-soft-blue;
-                font-weight: 300;
-                margin: 0 0 1rem 0;
-            }
-
-            .nft-purchase {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                font-weight: 300;
-                font-size: 1rem;
-                color: $primary-soft-blue;
-                margin: 0 0 1rem 0;
-
-                .nft-price {
+                .nft-image {
                     display: flex;
                     justify-content: center;
-                    align-content: center;
-                    gap: .3rem;
-                    color: $primary-cyan;
-                    font-weight: 600;
-                }
+                    position: relative;
 
-                .nft-time-left {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    align-content: center;
-                    gap: .3rem;
-                }
-
-            }
-
-            .divider {
-                width: 100%;
-                height: 0px;
-                padding: 0;
-                border-top: .1px solid $divider;
-                margin-bottom: 1rem;
-            }
-
-            .nft-creator {
-                display: flex;
-                flex-direction: row;
-                justify-content: left;
-                align-items: center;
-                font-size: 1rem;
-                color: $primary-soft-blue;
-                font-weight: 300;
-
-                span {
-                    // max-width: 100%;
-                    max-width: 15%;
-
-                    img {
+                    .hero-image {
+                        // display: block;
                         width: 100%;
-                        display: inline-block;
-                        height: auto;
-                        height: inherit;
-                        border-radius: 50%;
-                        border: 1px solid $white;
+                        border-radius: 3%;
+                        height: fit-content;
                     }
+
+                    .hero-image:hover {
+                        opacity: 0.5;
+                    }
+
+                    .hero-image-overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 3%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        opacity: 0;
+
+                    }
+
+                    .hero-image-overlay:hover {
+                        background-color: $primary-cyan;
+                        opacity: .5;
+                    }
+
                 }
 
-                .creator-start {
-                    margin-left: 1rem;
+                .nft-name-header {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    margin: 1.5rem 0 1rem 0;
                 }
 
-                .creator {
-                    margin-left: .3rem;
-                    max-width: 100%;
-                    color: $white;
+                .nft-name-header:hover {
+                    color: $primary-cyan;
+                }
+
+                .nft-description {
+                    font-size: 1rem;
+                    color: $primary-soft-blue;
+                    font-weight: 300;
+                    margin: 0 0 0 0;
+                }
+
+                .nft-purchase {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-weight: 300;
+                    font-size: 1rem;
+                    color: $primary-soft-blue;
+                    margin: 0 0 0 0;
+
+                    .nft-price {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: .3rem;
+                        color: $primary-cyan;
+
+                        p {
+                            font-weight: 600;
+                        }
+                    }
+
+                    .nft-time-left {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: .3rem;
+                    }
+
+                }
+
+                .divider {
+                    width: 100%;
+                    height: 0px;
+                    padding: 0;
+                    border-top: .1px solid $divider;
+                    margin-bottom: 1rem;
+                }
+
+                .nft-creator {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: left;
+                    align-items: center;
+                    font-size: 1rem;
+                    color: $primary-soft-blue;
+                    font-weight: 300;
+
+                    span {
+                        // max-width: 100%;
+                        max-width: 11%;
+
+                        img {
+                            width: 100%;
+                            display: inline-block;
+                            height: auto;
+                            height: inherit;
+                            border-radius: 50%;
+                            border: 1px solid $white;
+                        }
+                    }
+
+                    .creator-start {
+                        margin-left: 1rem;
+                    }
+
+                    .creator {
+                        margin-left: .3rem;
+                        max-width: 100%;
+                        color: $white;
+                    }
+
+                    .creator:hover {
+                        color: $primary-cyan;
+                    }
+
                 }
 
             }
 
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+                margin: 2rem 0 0 0;
+
+                a {
+                    color: hsl(228, 45%, 44%);
+                }
+            }
         }
+    }
+}
 
-        .attribution {
-            font-size: 11px;
-            text-align: center;
-            margin: 2rem 0 0 0;
-
-            a {
-                color: hsl(228, 45%, 44%);
+@media only screen and (min-width: 768px) {
+    body {
+        .parent {
+            .container {
+                .card {
+                    max-width: 50%;
+                }
             }
         }
     }
